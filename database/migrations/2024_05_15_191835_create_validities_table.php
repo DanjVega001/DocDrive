@@ -15,7 +15,7 @@ class CreateValiditiesTable extends Migration
     {
         Schema::create('validities', function (Blueprint $table) {
             $table->id();
-            $table->integer("year");
+            $table->integer("year")->unique();
             //$table->timestamps();
         });
     }

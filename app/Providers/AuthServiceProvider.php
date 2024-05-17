@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Gate;
 
 class AuthServiceProvider extends ServiceProvider
 {
+
     /**
      * The policy mappings for the application.
      *
@@ -42,9 +43,8 @@ class AuthServiceProvider extends ServiceProvider
      * Devuelve el rol del usuario autenticado
      */
 
-    static public function getRole() : string
+    static public function getRole(): string
     {
-        return Auth::user()->role->name ?? "Invitado";
+        return Auth::user()->role->name ?? "guest";
     }
-
 }

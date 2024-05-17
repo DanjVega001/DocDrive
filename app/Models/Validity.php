@@ -10,8 +10,7 @@ class Validity extends Model
     use HasFactory;
 
     protected $fillable = [
-        'startYear',
-        'endYear',
+        'year',
     ];
 
     public function projects()

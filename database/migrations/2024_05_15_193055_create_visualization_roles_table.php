@@ -16,7 +16,7 @@ class CreateVisualizationRolesTable extends Migration
         Schema::create('visualization_roles', function (Blueprint $table) {
             $table->id();
             $table->string("name");  
-            //$table->timestamps();
+            $table->timestamps();
         });
     }
 
