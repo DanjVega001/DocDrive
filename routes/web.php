@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\ValidityController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -21,5 +22,8 @@ Route::get('/', [AuthenticatedSessionController::class, 'create']);
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::get('/validity', [ValidityController::class, "index"])->name('validity.index');
+
 
 require __DIR__ . '/auth.php';
