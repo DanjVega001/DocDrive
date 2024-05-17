@@ -3,10 +3,12 @@
 namespace App\Providers;
 
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 
 class AuthServiceProvider extends ServiceProvider
 {
+
     /**
      * The policy mappings for the application.
      *
@@ -26,5 +28,23 @@ class AuthServiceProvider extends ServiceProvider
         $this->registerPolicies();
 
         //
+    }
+
+    /**
+     * Evalua si un usuario esta autenticado 
+     * 
+     */
+    static public function checkAuthenticated()
+    {
+        return Auth::check();
+    }
+
+    /**
+     * Devuelve el rol del usuario autenticado
+     */
+
+    static public function getRole(): string
+    {
+        return Auth::user()->role->name ?? "guest";
     }
 }
